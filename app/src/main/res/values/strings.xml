@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Словарь</string>
+    <string name="error_textview_stub">Ошибка</string>
+    <string name="reload_button">Перезагрузить</string>
+    <string name="undefined_error">Неизвестная ошибка</string>
+    <string name="empty_server_response_on_success">Ответ от сервера пустой</string>
+    <string name="button_search">Поиск</string>
+    <string name="search_hint">Новое слово</string>
+    <string name="delete_description">X</string>
 </resources>
