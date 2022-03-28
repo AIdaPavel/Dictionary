@@ -6,6 +6,8 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pavel.ivanov.myapplication.model.data.DataModel
+import pavel.ivanov.myapplication.model.data.api.ApiService
+import pavel.ivanov.myapplication.model.data.api.BaseInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -9,9 +9,10 @@ import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.model.data.DataModel
 
 class MainAdapter(
-    private var onListItemClickListener: OnListItemClickListener,
-    private var data: List<DataModel>
+    private var onListItemClickListener: OnListItemClickListener
 ): RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
+
+    private var data: List<DataModel> = arrayListOf()
 
     fun setData(data: List<DataModel>) {
         this.data = data
@@ -50,6 +51,7 @@ class MainAdapter(
     private fun openInNewWindow(listItemData: DataModel) {
         onListItemClickListener.onItemClick(listItemData)
     }
+
     interface OnListItemClickListener {
         fun onItemClick(data: DataModel)
     }

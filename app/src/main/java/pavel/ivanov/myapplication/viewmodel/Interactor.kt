@@ -1,4 +1,4 @@
-package pavel.ivanov.myapplication.presenter
+package pavel.ivanov.myapplication.viewmodel
 
 import io.reactivex.Observable
 
