@@ -7,4 +7,10 @@
     <string name="button_search">Поиск</string>
     <string name="search_hint">Новое слово</string>
     <string name="delete_description">X</string>
+    <string name="dialog_title_stub">Заголовок</string>
+    <string name="dialog_button_cancel">Закрыть</string>
+    <string name="dialog_title_device_is_offline">Нет подключения</string>
+    <string name="dialog_message_device_is_offline">Пожалуйста, убедитесь что интернет включен</string>
+    <string name="error_stub">Заглушка</string>
+    <string name="dialog_tittle_sorry">Извините</string>
 </resources>

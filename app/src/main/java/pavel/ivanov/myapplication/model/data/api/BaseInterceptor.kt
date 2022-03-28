@@ -1,4 +1,4 @@
-package pavel.ivanov.myapplication.model.datasource
+package pavel.ivanov.myapplication.model.data.api
 
 import okhttp3.Interceptor
 import okhttp3.Response

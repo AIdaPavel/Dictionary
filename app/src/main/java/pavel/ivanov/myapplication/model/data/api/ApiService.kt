@@ -1,4 +1,4 @@
-package pavel.ivanov.myapplication.model.datasource
+package pavel.ivanov.myapplication.model.data.api
 
 import io.reactivex.Observable
 import pavel.ivanov.myapplication.model.data.DataModel
