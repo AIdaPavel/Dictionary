@@ -6,27 +6,29 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.textfield.TextInputEditText
 import pavel.ivanov.myapplication.databinding.DialogBoxLayoutBinding
 
 class SearchDialogFragment : BottomSheetDialogFragment() {
 
     private var _binding: DialogBoxLayoutBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var clearTextImageView: ImageView
+    private lateinit var searchButton: TextView
+    private lateinit var searchEditText: TextInputEditText
     private var onSearchClickListener: OnSearchClickListener? = null
 
     private val textWatcher = object : TextWatcher {
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count:
-        Int) {
-            if (binding.searchEditText.text != null &&
-                !binding.searchEditText.text.toString().isEmpty()
-            ) {
-                binding.searchButtonTextview.isEnabled = true
-                binding.clearTextImageview.visibility = android.view.View.VISIBLE
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            if (searchEditText.text != null && !searchEditText.text.toString().isEmpty()) {
+                searchButton.isEnabled = true
+                clearTextImageView.visibility = View.VISIBLE
             } else {
-                binding.searchButtonTextview.isEnabled = false
-                binding.clearTextImageview.visibility = android.view.View.GONE
+                searchButton.isEnabled = false
+                clearTextImageView.visibility = View.GONE
             }
         }
 
@@ -53,10 +55,15 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
         _binding = DialogBoxLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.searchButtonTextview.setOnClickListener(onSearchButtonClickListener)
-        binding.searchEditText.addTextChangedListener(textWatcher)
+        searchEditText = binding.searchEditText
+        clearTextImageView = binding.clearTextImageview
+        searchButton = binding.searchButtonTextview
+
+        searchButton.setOnClickListener(onSearchButtonClickListener)
+        searchEditText.addTextChangedListener(textWatcher)
         addOnClearClickListener()
     }
 

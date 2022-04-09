@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import pavel.ivanov.myapplication.model.data.AppState
-import pavel.ivanov.myapplication.utils.parseSearchResults
+import pavel.ivanov.myapplication.utils.parseOnlineSearchResults
 import pavel.ivanov.myapplication.viewmodel.BaseViewModel
 
 
@@ -33,14 +33,9 @@ class MainViewModel (private val interactor: MainInteractor) :
     хотя это и не обязательно указывать явно, потому что Retrofit и так делает это
     благодаря CoroutineCallAdapterFactory().
     Это же касается и Room */
-    private suspend fun startInteractor(word: String, isOnline: Boolean) =
-        withContext(Dispatchers.IO) {
-            _mutableLiveData.postValue(
-                parseSearchResults(
-                    interactor.getData(word, isOnline)
-                )
-            )
-        }
+    private suspend fun startInteractor(word: String, isOnline: Boolean) = withContext(Dispatchers.IO) {
+        _mutableLiveData.postValue(parseOnlineSearchResults(interactor.getData(word, isOnline)))
+    }
 
     // Обрабатываем ошибки
     override fun handleError(error: Throwable) {
