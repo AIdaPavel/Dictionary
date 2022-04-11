@@ -13,4 +13,6 @@
     <string name="dialog_message_device_is_offline">Пожалуйста, убедитесь что интернет включен</string>
     <string name="error_stub">Заглушка</string>
     <string name="dialog_tittle_sorry">Извините</string>
+    <string name="image_stub">image</string>
+    <string name="menu_title_history">History</string>
 </resources>

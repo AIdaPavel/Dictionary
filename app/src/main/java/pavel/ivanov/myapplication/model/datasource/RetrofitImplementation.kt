@@ -20,10 +20,6 @@ class RetrofitImplementation : DataSource<List<DataModel>> {
         return createRetrofit(interceptor).create(ApiService::class.java)
     }
 
-    /*Обратите внимание на Builder: в addCallAdapterFactory теперь передаётся
-    CoroutineCallAdapterFactory() которая позволяет Retrofit работать с корутинами.
-    Для ее использования нужно прописать для Ретрофита зависимость
-    вместо той, которая была для Rx: implementation*/
     private fun createRetrofit(interceptor: Interceptor): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL_LOCATIONS)
@@ -36,15 +32,11 @@ class RetrofitImplementation : DataSource<List<DataModel>> {
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(interceptor)
-        httpClient.addInterceptor(
-            HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY)
-        )
+        httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         return httpClient.build()
     }
 
     companion object {
-        private const val BASE_URL_LOCATIONS =
-            "https://dictionary.skyeng.ru/api/public/v1/"
+        private const val BASE_URL_LOCATIONS = "https://dictionary.skyeng.ru/api/public/v1/"
     }
 }
