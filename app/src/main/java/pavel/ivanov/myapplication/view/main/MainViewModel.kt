@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import pavel.ivanov.myapplication.model.data.AppState
+import pavel.ivanov.model.data.AppState
 import pavel.ivanov.myapplication.utils.parseOnlineSearchResults
 import pavel.ivanov.myapplication.viewmodel.BaseViewModel
 

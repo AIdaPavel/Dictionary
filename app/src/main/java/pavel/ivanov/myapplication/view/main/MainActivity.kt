@@ -5,18 +5,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.lifecycle.Observer
 import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.databinding.ActivityMainBinding
-import pavel.ivanov.myapplication.model.data.AppState
-import pavel.ivanov.myapplication.model.data.DataModel
-import pavel.ivanov.myapplication.utils.network.isOnline
-import pavel.ivanov.myapplication.view.base.BaseActivity
+import pavel.ivanov.model.data.AppState
+import pavel.ivanov.model.data.DataModel
+import pavel.ivanov.utils.network.isOnline
 import pavel.ivanov.myapplication.view.main.adapter.MainAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import pavel.ivanov.core.BaseActivity
 import pavel.ivanov.myapplication.utils.convertMeaningsToString
 import pavel.ivanov.myapplication.view.descriptionscreen.DescriptionActivity
 import pavel.ivanov.myapplication.view.history.HistoryActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG = "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
 
@@ -39,7 +38,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
                         this@MainActivity,
                         data.text!!,
                         convertMeaningsToString(data.meanings!!),
-                        data.meanings[0].imageUrl
+                        data.meanings!![0].imageUrl
                     )
                 )
             }
@@ -90,7 +89,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         }
         val viewModel: MainViewModel by viewModel()
         model = viewModel
-        model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
+        model.subscribe().observe(this@MainActivity, { renderData(it) })
     }
 
     private fun initViews() {
