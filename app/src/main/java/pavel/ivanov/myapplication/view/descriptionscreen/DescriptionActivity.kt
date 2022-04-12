@@ -15,13 +15,12 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.databinding.ActivityDescriptionBinding
-import pavel.ivanov.myapplication.utils.network.isOnline
-import pavel.ivanov.myapplication.utils.ui.AlertDialogFragment
+import pavel.ivanov.utils.network.isOnline
+import pavel.ivanov.utils.ui.AlertDialogFragment
 
 class DescriptionActivity : AppCompatActivity() {
 

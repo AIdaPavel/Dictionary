@@ -1,10 +1,10 @@
 package pavel.ivanov.myapplication.view.main
 
-import pavel.ivanov.myapplication.model.data.AppState
-import pavel.ivanov.myapplication.model.data.DataModel
-import pavel.ivanov.myapplication.model.repository.Repository
-import pavel.ivanov.myapplication.model.repository.RepositoryLocal
-import pavel.ivanov.myapplication.viewmodel.Interactor
+import pavel.ivanov.core.viewmodel.Interactor
+import pavel.ivanov.model.data.AppState
+import pavel.ivanov.model.data.DataModel
+import pavel.ivanov.repository.Repository
+import pavel.ivanov.repository.RepositoryLocal
 
 class MainInteractor(
     private val repositoryRemote: Repository<List<DataModel>>,
