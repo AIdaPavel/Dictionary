@@ -3,11 +3,14 @@ package pavel.ivanov.myapplication.view.base
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.databinding.LoadingLayoutBinding
 import pavel.ivanov.myapplication.model.data.AppState
 import pavel.ivanov.myapplication.model.data.DataModel
+import pavel.ivanov.myapplication.utils.network.OnlineLiveData
 import pavel.ivanov.myapplication.utils.network.isOnline
 import pavel.ivanov.myapplication.utils.ui.AlertDialogFragment
 import pavel.ivanov.myapplication.viewmodel.BaseViewModel
@@ -23,17 +26,29 @@ abstract class BaseActivity<T : AppState, I : Interactor<T>> : AppCompatActivity
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        isNetworkAvailable = isOnline(applicationContext)
+        subscribeToNetworkChange()
+
     }
+
+    private fun subscribeToNetworkChange() {
+        OnlineLiveData(this).observe(
+            this@BaseActivity,
+            Observer<Boolean> {
+                isNetworkAvailable = it
+                if (!isNetworkAvailable) {
+                    Toast.makeText(
+                        this@BaseActivity,
+                        R.string.dialog_message_device_is_offline,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
+
 
     override fun onResume() {
         super.onResume()
         binding = LoadingLayoutBinding.inflate(layoutInflater)
-
-        isNetworkAvailable = isOnline(applicationContext)
-        if (!isNetworkAvailable && isDialogNull()) {
-            showNoInternetConnectionDialog()
-        }
     }
 
     protected fun renderData(appState: T) {
