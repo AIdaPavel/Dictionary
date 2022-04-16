@@ -6,6 +6,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.databinding.ActivityMainBinding
 import pavel.ivanov.myapplication.model.data.AppState
@@ -15,6 +17,7 @@ import pavel.ivanov.myapplication.view.base.BaseActivity
 import pavel.ivanov.myapplication.view.main.adapter.MainAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pavel.ivanov.myapplication.utils.convertMeaningsToString
+import pavel.ivanov.myapplication.utils.ui.viewById
 import pavel.ivanov.myapplication.view.descriptionscreen.DescriptionActivity
 import pavel.ivanov.myapplication.view.history.HistoryActivity
 
@@ -25,6 +28,9 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
     private lateinit var binding: ActivityMainBinding
     override lateinit var model: MainViewModel
     private val adapter: MainAdapter by lazy { MainAdapter(onListItemClickListener) }
+    private val mainActivityRecyclerview by viewById<RecyclerView>(R.id.main_activity_recyclerview)
+    private val searchFAB by viewById<FloatingActionButton>(R.id.search_fab)
+
     private val fabClickListener: View.OnClickListener =
         View.OnClickListener {
             val searchDialogFragment = SearchDialogFragment.newInstance()
@@ -47,14 +53,10 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
     private val onSearchClickListener: SearchDialogFragment.OnSearchClickListener =
         object : SearchDialogFragment.OnSearchClickListener {
             override fun onClick(searchWord: String) {
-                isNetworkAvailable = isOnline(applicationContext)
-                if (isNetworkAvailable) {
-                    model.getData(searchWord, isNetworkAvailable)
-                } else {
-                    showNoInternetConnectionDialog()
-                }
+                showNoInternetConnectionDialog()
             }
         }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

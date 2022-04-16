@@ -7,4 +7,6 @@ import androidx.room.RoomDatabase
 abstract class HistoryDataBase : RoomDatabase() {
 
     abstract fun historyDao(): HistoryDao
+
+
 }
