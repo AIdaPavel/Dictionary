@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import pavel.ivanov.model.data.userdata.DataModel
 import pavel.ivanov.myapplication.R
-import pavel.ivanov.myapplication.model.data.DataModel
+import pavel.ivanov.myapplication.utils.convertMeaningsToSingleString
 
-class MainAdapter(
-    private var onListItemClickListener: OnListItemClickListener
-): RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
+class MainAdapter(private var onListItemClickListener: OnListItemClickListener) :
+    RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
 
     private var data: List<DataModel> = arrayListOf()
 
@@ -19,13 +19,10 @@ class MainAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): RecyclerItemViewHolder {
-        return  RecyclerItemViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerItemViewHolder {
+        return RecyclerItemViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.list_layout, parent, false) as View
+                .inflate(R.layout.activity_main_recyclerview_item, parent, false) as View
         )
     }
 
@@ -33,7 +30,9 @@ class MainAdapter(
         holder.bind(data[position])
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int {
+        return data.size
+    }
 
     inner class RecyclerItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -41,10 +40,9 @@ class MainAdapter(
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 itemView.findViewById<TextView>(R.id.header_textview_recycler_item).text = data.text
                 itemView.findViewById<TextView>(R.id.description_textview_recycler_item).text =
-                    data.meanings?.get(0)?.translation?.translation
+                    convertMeaningsToSingleString(data.meanings)
                 itemView.setOnClickListener { openInNewWindow(data) }
             }
-
         }
     }
 
@@ -55,5 +53,4 @@ class MainAdapter(
     interface OnListItemClickListener {
         fun onItemClick(data: DataModel)
     }
-
 }
