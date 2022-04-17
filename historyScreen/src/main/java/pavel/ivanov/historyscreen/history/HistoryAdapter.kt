@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_history_recyclerview_item.view.*
 import pavel.ivanov.historyscreen.R
 import pavel.ivanov.model.data.DataModel
 
@@ -37,8 +38,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.RecyclerItemViewHolde
 
         fun bind(data: DataModel) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                itemView.findViewById<TextView>(R.id.header_history_textview_recycler_item).text =
-                    data.text
+                itemView.header_history_textview_recycler_item.text = data.text
                 itemView.setOnClickListener {
                     Toast.makeText(itemView.context, "on click: ${data.text}", Toast.LENGTH_SHORT)
                         .show()

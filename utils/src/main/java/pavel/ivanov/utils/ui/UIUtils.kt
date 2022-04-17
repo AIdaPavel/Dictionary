@@ -15,13 +15,12 @@ fun getAlertDialog(context: Context, title: String?, message: String?): AlertDia
     if (!title.isNullOrBlank()) {
         finalTitle = title
     }
-
     builder.setTitle(finalTitle)
     if (!message.isNullOrBlank()) {
         builder.setMessage(message)
     }
-
     builder.setCancelable(true)
     builder.setPositiveButton(R.string.dialog_button_cancel) { dialog, _ -> dialog.dismiss() }
     return builder.create()
 }
+

@@ -16,3 +16,4 @@ class EquilateralImageView : AppCompatImageView {
         super.onMeasure(widthMeasureSpec, widthMeasureSpec)
     }
 }
+

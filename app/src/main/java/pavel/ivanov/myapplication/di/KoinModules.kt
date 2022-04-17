@@ -1,6 +1,7 @@
 package pavel.ivanov.myapplication.di
 
 import androidx.room.Room
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import pavel.ivanov.model.data.DataModel
 import pavel.ivanov.repository.RetrofitImplementation
@@ -19,19 +20,22 @@ import pavel.ivanov.myapplication.view.main.MainViewModel
 val application = module {
     single { Room.databaseBuilder(get(), HistoryDataBase::class.java, "HistoryDB").build() }
     single { get<HistoryDataBase>().historyDao() }
-    single<Repository<List<DataModel>>> { RepositoryImplementation(RetrofitImplementation()) }
-    single<RepositoryLocal<List<DataModel>>> { RepositoryImplementationLocal(
-        RoomDataBaseImplementation(get())
-    )
+    single<Repository<List<SearchResultDto>>> { RepositoryImplementation(RetrofitImplementation()) }
+    single<RepositoryLocal<List<SearchResultDto>>> {
+        RepositoryImplementationLocal(RoomDataBaseImplementation(get()))
     }
 }
 
 val mainScreen = module {
-    factory { MainViewModel(get()) }
-    factory { MainInteractor(get(), get()) }
+    scope(named<MainActivity>()) {
+        scoped { MainInteractor(get(), get()) }
+        viewModel { MainViewModel(get()) }
+    }
 }
 
 val historyScreen = module {
-    factory { HistoryViewModel(get()) }
-    factory { HistoryInteractor(get(), get()) }
+    scope(named<HistoryActivity>()) {
+        scoped { HistoryInteractor(get(), get()) }
+        viewModel { HistoryViewModel(get()) }
+    }
 }
