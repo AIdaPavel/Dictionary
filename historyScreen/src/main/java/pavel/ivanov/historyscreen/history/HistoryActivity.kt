@@ -1,12 +1,10 @@
-package pavel.ivanov.myapplication.view.history
+package pavel.ivanov.historyscreen.history
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import org.koin.android.viewmodel.ext.android.viewModel
 import pavel.ivanov.core.BaseActivity
 import pavel.ivanov.historyscreen.databinding.ActivityHistoryBinding
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
+import pavel.ivanov.model.data.userdata.DataModel
 
 class HistoryActivity : BaseActivity<AppState, HistoryInteractor>() {
 

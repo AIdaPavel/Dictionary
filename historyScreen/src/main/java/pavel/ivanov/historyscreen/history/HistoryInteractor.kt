@@ -1,8 +1,8 @@
-package pavel.ivanov.myapplication.view.history
+package pavel.ivanov.historyscreen.history
 
 import pavel.ivanov.core.viewmodel.Interactor
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
+import pavel.ivanov.model.data.dto.SearchResultDto
 import pavel.ivanov.myapplication.utils.mapSearchResultToResult
 import pavel.ivanov.repository.Repository
 import pavel.ivanov.repository.RepositoryLocal

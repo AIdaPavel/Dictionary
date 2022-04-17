@@ -1,3 +1,3 @@
-package pavel.ivanov.myapplication.utils
+package pavel.ivanov.utils
 
 fun String.Companion.getEmptyString(): String = ""

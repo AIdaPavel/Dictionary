@@ -1,14 +1,13 @@
-package pavel.ivanov.myapplication.view.history
+package pavel.ivanov.historyscreen.history
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_history_recyclerview_item.view.*
 import pavel.ivanov.historyscreen.R
-import pavel.ivanov.model.data.DataModel
+import pavel.ivanov.model.data.userdata.DataModel
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.RecyclerItemViewHolder>() {
 

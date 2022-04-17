@@ -67,7 +67,8 @@ dependencies {
     testImplementation(TestImpl.junit)
     androidTestImplementation(TestImpl.runner)
     androidTestImplementation(TestImpl.espresso)
-//    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
 }
 
 repositories {

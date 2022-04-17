@@ -1,8 +1,10 @@
 package pavel.ivanov.myapplication.utils
 
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
-import pavel.ivanov.model.data.Meanings
+import pavel.ivanov.model.data.dto.SearchResultDto
+import pavel.ivanov.model.data.userdata.DataModel
+import pavel.ivanov.model.data.userdata.Meaning
+import pavel.ivanov.model.data.userdata.TranslatedMeaning
 
 fun mapSearchResultToResult(searchResults: List<SearchResultDto>): List<DataModel> {
     return searchResults.map { searchResult ->

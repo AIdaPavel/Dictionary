@@ -3,18 +3,15 @@ package pavel.ivanov.myapplication.di
 import androidx.room.Room
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import pavel.ivanov.model.data.DataModel
-import pavel.ivanov.repository.RetrofitImplementation
-import pavel.ivanov.repository.RoomDataBaseImplementation
-import pavel.ivanov.repository.Repository
-import pavel.ivanov.repository.RepositoryImplementation
-import pavel.ivanov.repository.RepositoryImplementationLocal
-import pavel.ivanov.repository.RepositoryLocal
-import pavel.ivanov.repository.room.HistoryDataBase
-import pavel.ivanov.myapplication.view.history.HistoryInteractor
-import pavel.ivanov.myapplication.view.history.HistoryViewModel
+import pavel.ivanov.historyscreen.history.HistoryActivity
+import pavel.ivanov.historyscreen.history.HistoryInteractor
+import pavel.ivanov.historyscreen.history.HistoryViewModel
+import pavel.ivanov.model.data.dto.SearchResultDto
+import pavel.ivanov.myapplication.view.main.MainActivity
 import pavel.ivanov.myapplication.view.main.MainInteractor
 import pavel.ivanov.myapplication.view.main.MainViewModel
+import pavel.ivanov.repository.*
+import pavel.ivanov.repository.room.HistoryDataBase
 
 
 val application = module {

@@ -1,4 +1,4 @@
-package pavel.ivanov.myapplication.viewmodel
+package pavel.ivanov.core.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

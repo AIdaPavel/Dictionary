@@ -1,7 +1,6 @@
 package pavel.ivanov.repository
 
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
 import pavel.ivanov.model.data.dto.SearchResultDto
 import pavel.ivanov.repository.room.HistoryDao
 

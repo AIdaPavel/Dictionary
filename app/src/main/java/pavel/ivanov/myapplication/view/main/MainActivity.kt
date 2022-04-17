@@ -14,18 +14,16 @@ import androidx.annotation.RequiresApi
 import androidx.core.animation.doOnEnd
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import pavel.ivanov.core.BaseActivity
+import pavel.ivanov.historyscreen.history.HistoryActivity
+import pavel.ivanov.model.data.AppState
+import pavel.ivanov.model.data.userdata.DataModel
 import pavel.ivanov.myapplication.R
 import pavel.ivanov.myapplication.databinding.ActivityMainBinding
-import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
-import pavel.ivanov.utils.network.isOnline
-import pavel.ivanov.myapplication.view.main.adapter.MainAdapter
-import pavel.ivanov.core.BaseActivity
-import pavel.ivanov.myapplication.utils.convertMeaningsToString
-import pavel.ivanov.myapplication.view.descriptionscreen.DescriptionActivity
-import pavel.ivanov.myapplication.view.history.HistoryActivity
-import org.koin.android.viewmodel.ext.android.viewModel
 import pavel.ivanov.myapplication.utils.convertMeaningsToSingleString
+import pavel.ivanov.myapplication.view.descriptionscreen.DescriptionActivity
+import pavel.ivanov.myapplication.view.main.adapter.MainAdapter
+import pavel.ivanov.utils.ui.viewById
 
 private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG = "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
 private const val SLIDE_LEFT_DURATION = 1000L

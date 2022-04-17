@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pavel.ivanov.core.databinding.LoadingLayoutBinding
+import pavel.ivanov.core.viewmodel.BaseViewModel
 import pavel.ivanov.core.viewmodel.Interactor
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.model.data.DataModel
-import pavel.ivanov.utils.network.isOnline
+import pavel.ivanov.model.data.userdata.DataModel
 import pavel.ivanov.utils.ui.AlertDialogFragment
-import pavel.ivanov.myapplication.viewmodel.BaseViewModel
+import pavel.ivanov.utils.network.OnlineLiveData
 
 private const val DIALOG_FRAGMENT_TAG = "74a54328-5d62-46bf-ab6b-cbf5d8c79522"
 

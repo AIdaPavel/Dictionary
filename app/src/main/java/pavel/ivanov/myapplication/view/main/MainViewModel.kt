@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import pavel.ivanov.core.viewmodel.BaseViewModel
 import pavel.ivanov.model.data.AppState
 import pavel.ivanov.myapplication.utils.parseOnlineSearchResults
-import pavel.ivanov.myapplication.viewmodel.BaseViewModel
 
 
 class MainViewModel(private val interactor: MainInteractor) :
@@ -36,7 +36,7 @@ class MainViewModel(private val interactor: MainInteractor) :
 
     override fun onCleared() {
         _mutableLiveData.value =
-            AppState.Success(null)//TODO Workaround. Set View to original state
+            AppState.Success(null)
         super.onCleared()
     }
 }

@@ -1,10 +1,10 @@
-package pavel.ivanov.myapplication.view.history
+package pavel.ivanov.historyscreen.history
 
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.launch
+import pavel.ivanov.core.viewmodel.BaseViewModel
+import pavel.ivanov.historyscreen.parseLocalSearchResults
 import pavel.ivanov.model.data.AppState
-import pavel.ivanov.myapplication.utils.parseLocalSearchResults
-import pavel.ivanov.myapplication.viewmodel.BaseViewModel
 
 class HistoryViewModel(private val interactor: HistoryInteractor) :
     BaseViewModel<AppState>() {
@@ -30,7 +30,7 @@ class HistoryViewModel(private val interactor: HistoryInteractor) :
     }
 
     override fun onCleared() {
-        _mutableLiveData.value = AppState.Success(null)//TODO Workaround. Set View to original state
+        _mutableLiveData.value = AppState.Success(null)
         super.onCleared()
     }
 }

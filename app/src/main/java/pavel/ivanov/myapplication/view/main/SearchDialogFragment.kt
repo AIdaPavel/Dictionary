@@ -10,12 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.dialog_box_layout.*
-import pavel.ivanov.myapplication.R
-import pavel.ivanov.myapplication.databinding.DialogBoxLayoutBinding
-import pavel.ivanov.myapplication.utils.getEmptyString
+import kotlinx.android.synthetic.main.search_dialog_fragment.*
+import pavel.ivanov.myapplication.databinding.SearchDialogFragmentBinding
+import pavel.ivanov.utils.getEmptyString
+import pavel.ivanov.utils.ui.viewBinding
 
 class SearchDialogFragment : BottomSheetDialogFragment() {
+
+    private val binding: SearchDialogFragmentBinding by viewBinding()
 
     private lateinit var searchEditText: TextInputEditText
     private lateinit var clearTextImageView: ImageView
@@ -50,7 +52,7 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_box_layout, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

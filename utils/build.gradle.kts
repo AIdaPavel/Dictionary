@@ -52,6 +52,7 @@ android {
 
 dependencies {
     implementation(Design.appcompat)
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.4.1")
 
     //Kotlin
     implementation(Kotlin.core)
@@ -62,6 +63,7 @@ dependencies {
     androidTestImplementation(TestImpl.runner)
     androidTestImplementation(TestImpl.espresso)
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
 }
 repositories {
     mavenCentral()

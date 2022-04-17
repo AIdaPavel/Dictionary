@@ -4,7 +4,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import pavel.ivanov.model.data.DataModel
 import pavel.ivanov.model.data.dto.SearchResultDto
 import pavel.ivanov.repository.api.ApiService
 import pavel.ivanov.repository.api.BaseInterceptor
